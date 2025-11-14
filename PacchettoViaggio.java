@@ -7,6 +7,8 @@ public abstract class PacchettoViaggio {
     private double costoBase;
     String viaggio;
     PacchettoViaggio tipoDiViaggio;
+    private Date dataRicorrenza;
+    private int numeroMinori;
 
     public void setDataInizioViaggio(Date dataInizioViaggio) {
         this.dataInizioViaggio = dataInizioViaggio;
@@ -35,7 +37,7 @@ public abstract class PacchettoViaggio {
 
         switch (viaggio) {
             case "Familiare":
-                tipoDiViaggio = new PacchettoFamiliare(dataInizioViaggio, dataFineViaggio);
+                tipoDiViaggio = new PacchettoFamiliare(dataInizioViaggio, dataFineViaggio, int numeroMinori);
                 break;
 
             case "Romantico":
