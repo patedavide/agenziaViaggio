@@ -1,6 +1,6 @@
 import java.util.Date;
 
-public class PacchettoViaggio {
+public abstract class PacchettoViaggio {
 
     private Date dataInizioViaggio;
     private Date dataFineViaggio;
@@ -29,21 +29,21 @@ public class PacchettoViaggio {
     }
 
     public PacchettoViaggio(Date dataInizioViaggio, Date dataFineViaggio, String viaggio){
-        dataInizioViaggio = this.dataInizioViaggio;
-        dataFineViaggio = this.dataFineViaggio;
-        viaggio = this.viaggio;
+        this.dataInizioViaggio = dataInizioViaggio;
+        this.dataFineViaggio = dataFineViaggio;
+        this.viaggio = viaggio;
 
         switch (viaggio) {
             case "Familiare":
-                tipoDiViaggio = new PacchettoFamiliare();
+                tipoDiViaggio = new PacchettoFamiliare(dataInizioViaggio, dataFineViaggio);
                 break;
 
             case "Romantico":
-                tipoDiViaggio = new PacchettoRomantico();
+                tipoDiViaggio = new PacchettoRomantico(dataInizioViaggio, dataFineViaggio, Date dataRicorrenza);
                 break;
 
             case "Lavoro":
-                tipoDiViaggio = new PacchettoLavoro();
+                tipoDiViaggio = new PacchettoLavoro(dataInizioViaggio, dataFineViaggio);
                 break;
 
             default:
